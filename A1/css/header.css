@@ -1,0 +1,35 @@
+.nav {
+	text-align: center;
+	background: #eeeeee;
+	overflow: hidden;
+	vertical-align: center;
+}
+
+.nav ul {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	vertical-align: center;
+}
+
+.nav ul li {
+	float: left;
+	text-align: center;
+	color: black;
+	text-decoration: none;
+	padding: 14px;
+	font-size: 17px;
+	vertical-align: center;
+	/*background: linear-gradient(black,white); TODO: how to fade that away*/
+	
+	transition: background 1s;
+}
+
+.nav ul li:hover {
+	background: #aaaaaa;
+}
+
+#logo {
+	
+}
