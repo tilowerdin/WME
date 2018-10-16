@@ -1,35 +1,45 @@
-.nav {
-	text-align: center;
-	background: #eeeeee;
-	overflow: hidden;
-	vertical-align: center;
-}
-
-.nav ul {
-	display: inline-block;
-	list-style-type: none;
-	margin: 0px;
-	padding: 0px;
-	vertical-align: center;
-}
-
-.nav ul li {
-	float: left;
-	text-align: center;
-	color: black;
-	text-decoration: none;
-	padding: 14px;
-	font-size: 17px;
-	vertical-align: center;
-	/*background: linear-gradient(black,white); TODO: how to fade that away*/
-	
-	transition: background 1s;
-}
-
-.nav ul li:hover {
-	background: #aaaaaa;
+:root {
+	--pad: 14px;
+	--border-color: #999999;
 }
 
 #logo {
-	
+	width: 150px;
+	height: 80px;
+	margin-right: var(--pad);
+	margin-left: var(--pad);
+	background-image: url("../img/logo_color.png");
+	transition: 1s;
+	vertical-align: middle;
+}
+
+#logo:hover {
+	background-image: url('../img/logo_bw.png');
+}
+
+.container {
+	display: flex;
+	vertical-align: middle;
+}
+
+.menu {
+	display: flex;
+	float: left;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.menu-item {
+	height: 80px;
+	display: inline-block;
+	float: left;
+	vertical-align: middle;
+	transition: background .5s;
+	box-sizing: border-box;
+	padding: var(--pad);
+}
+
+.menu-item:hover {
+	background-color: #aaaaaa;
 }
