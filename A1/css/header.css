@@ -1,49 +1,149 @@
 :root {
 	--pad: 14px;
 	--border-color: #999999;
+	--green: #9ac334;
 }
 
 * {
 	font-family: 'Roboto', sans-serif;
 }
 
+header {
+	max-width: 100%;
+
+}
+
+
+
+nav {
+	/*height: 80px;*/
+	width: 100%;
+	background: #eeeeee;
+	position: relative;
+	border-collapse: collapse;
+	border-bottom: solid 1px #aaaaaa;
+	z-index: 500;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+nav ul {
+	background: #eeeeee;
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1000px;
+	/*height: 80px;*/
+}
+
+nav li {
+	background: #eeeeee;
+	display: inline-block;
+	float: left;
+	height: 100%;
+	text-align: center;
+	vertical-align: middle;
+}
+
 #logo {
+	display: block;
 	width: 150px;
 	height: 80px;
-	margin-right: var(--pad);
+	margin-right: 50px;
 	margin-left: var(--pad);
 	background-image: url("../img/logo_color.png");
 	transition: 1s;
-	vertical-align: middle;
 }
 
 #logo:hover {
 	background-image: url('../img/logo_bw.png');
 }
 
-.container {
-	display: flex;
-	vertical-align: middle;
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	width: 100%;
+	zoom: 1;
 }
 
-.menu {
-	display: flex;
-	float: left;
-	padding: 0;
-	margin: 0;
-	vertical-align: middle;
-}
-
-.menu-item {
-	height: 80px;
+nav a {
+	color: black;
 	display: inline-block;
-	float: left;
-	vertical-align: middle;
-	transition: background .5s;
-	box-sizing: border-box;
+	text-decoration: none;
 	padding: var(--pad);
 }
 
-.menu-item:hover {
-	background-color: #aaaaaa;
+.menu {
+	display: table-cell;
+	height: 80px;
+	vertical-align: middle;
+	border-right: 1px solid #aaaaaa;
+	box-sizing: border-box;
+	transition: background 1s;
+	padding: var(--pad);
+}
+
+.menu:hover {
+	background: #bbbbbb;
+}
+
+nav i {
+	color: #222222;
+}
+
+nav li:nth-child(3) .menu {
+	border-left: 1px solid #aaaaaa;
+}
+
+#pull {
+	display: none;
+}
+
+@media screen and (max-width: 921px) {
+
+	#logo {
+		margin-right: 0;
+		display: block;
+		float: left;
+	}
+	.menu {
+		display: none;
+		height: auto;
+		background: white;
+		float: none;
+		text-align: left;
+		vertical-align: middle;
+	}
+	.menu-li {
+		background: white;
+		display: block;
+		float: none;
+		text-align: left;
+		vertical-align: middle;
+	}
+
+
+	#pull {
+		background: #eeeeee;
+		display: block;
+		height: 80px;
+		float: none;
+		overflow: hidden;
+	}
+	#pull div {
+		/*display: table-cell;*/
+		height: 100%;
+		vertical-align: middle;
+		text-align: right;
+		padding: var(--pad)
+	}
 }

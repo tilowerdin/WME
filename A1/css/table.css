@@ -3,10 +3,15 @@ table {
 	width: 100%;
 }
 
-caption {
+.showHide {
+	color: #888888;
 	text-align: left;
 	padding-top: 8px;
 	padding-left: 8px;
+}
+
+.showHide a {
+	color: #aaaaaa;
 }
 
 th {
@@ -24,5 +29,5 @@ tr:nth-child(2n) {
 }
 
 i {
-	color: #00cc00;
+	color: var(--green);
 }
