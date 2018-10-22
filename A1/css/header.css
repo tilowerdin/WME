@@ -87,7 +87,7 @@ nav a {
 	padding: var(--pad);
 }
 
-.menu {
+.menu-div {
 	display: table-cell;
 	height: 80px;
 	vertical-align: middle;
@@ -97,12 +97,11 @@ nav a {
 	padding: var(--pad);
 	-moz-user-select: none;
 	-webkit-user-select: none;
-	-khtml-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 }
 
-.menu:hover {
+.menu-div:hover {
 	background: #bbbbbb;
 }
 
@@ -110,7 +109,7 @@ nav i {
 	color: #222222;
 }
 
-nav li:nth-child(3) .menu {
+nav li:nth-child(3) .menu-div {
 	border-left: 1px solid #aaaaaa;
 }
 
@@ -125,7 +124,7 @@ nav li:nth-child(3) .menu {
 		display: block;
 		float: left;
 	}
-	.menu {
+	.menu-div {
 		display: none;
 		height: auto;
 		background: white;
