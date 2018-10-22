@@ -1,0 +1,23 @@
+footer {
+	max-width: 1170px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 50px;
+	padding-top: 10px; 
+	border-top: solid 1px var(--green);
+}
+
+footer div {
+	font-size: 12px;
+}
+
+#footerLeft {
+	display: inline-block;
+	float: left;
+}
+
+#footerRight {
+	display: inline-block;
+	float: right;
+	text-align: right;
+}

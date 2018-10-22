@@ -12,33 +12,34 @@
 }
 
 .body {
-	max-width: 1000px;
+	max-width: 1170px;
 	position: relative;
 	margin: 0 auto;
 	padding-top: 80px;
 }
 
-#box a {
+a {
 	color: var(--green);
 }
 
-#box a:hover {
+a:hover {
 	text-decoration: none;
+	color: var(--darkgreen);
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
 	#box {
 		columns: 2;
 	}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 	#box {
 		columns: 1;
 	}
 }
 
-@media screen and (max-width: 220px) {
+@media screen and (max-width: 320px) {
 	.body {
 		padding-top: 160px;
 	}

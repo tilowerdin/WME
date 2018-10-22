@@ -2,10 +2,14 @@
 	--pad: 14px;
 	--border-color: #999999;
 	--green: #9ac334;
+	--darkgreen: #4e7700;
 }
 
 * {
 	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	line-height: 145%;
+	font-style: normal;
 }
 
 header {
@@ -18,7 +22,7 @@ header {
 nav {
 	/*height: 80px;*/
 	width: 100%;
-	background: #eeeeee;
+	background: linear-gradient(#d1d1d1, #efefef);
 	position: relative;
 	border-collapse: collapse;
 	border-bottom: solid 1px #aaaaaa;
@@ -32,15 +36,15 @@ nav {
 }
 
 nav ul {
-	background: #eeeeee;
+	/*background: #eeeeee;*/
 	padding: 0;
 	margin: 0 auto;
-	max-width: 1000px;
+	max-width: 1170px;
 	/*height: 80px;*/
 }
 
 nav li {
-	background: #eeeeee;
+	/*background: #eeeeee;*/
 	display: inline-block;
 	float: left;
 	height: 100%;
@@ -133,7 +137,7 @@ nav li:nth-child(3) .menu {
 
 
 	#pull {
-		background: #eeeeee;
+		/*background: #eeeeee;*/
 		display: block;
 		height: 80px;
 		float: none;

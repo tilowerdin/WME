@@ -43,6 +43,7 @@ function toggle_cols(id) {
 }
 
 function get_table() {
+
 	var thead = document.getElementById("thead");
 	if (thead != null) {
 		thead.parentNode.removeChild(thead);
