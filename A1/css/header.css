@@ -52,6 +52,7 @@ nav li {
 	vertical-align: middle;
 }
 
+
 #logo {
 	display: block;
 	width: 150px;
@@ -94,6 +95,11 @@ nav a {
 	box-sizing: border-box;
 	transition: background 1s;
 	padding: var(--pad);
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .menu:hover {
