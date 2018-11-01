@@ -14,13 +14,9 @@
 
 header {
 	max-width: 100%;
-
 }
 
-
-
 nav {
-	/*height: 80px;*/
 	width: 100%;
 	background: linear-gradient(#d1d1d1, #efefef);
 	position: relative;
@@ -36,15 +32,12 @@ nav {
 }
 
 nav ul {
-	/*background: #eeeeee;*/
 	padding: 0;
 	margin: 0 auto;
 	max-width: 1170px;
-	/*height: 80px;*/
 }
 
 nav li {
-	/*background: #eeeeee;*/
 	display: inline-block;
 	float: left;
 	height: 100%;
@@ -142,17 +135,20 @@ nav li:nth-child(3) .menu-div {
 
 
 	#pull {
-		/*background: #eeeeee;*/
 		display: block;
 		height: 80px;
 		float: none;
 		overflow: hidden;
 	}
+	
 	#pull div {
-		/*display: table-cell;*/
 		height: 100%;
 		vertical-align: middle;
 		text-align: right;
 		padding: var(--pad)
+	}
+
+	nav li:nth-child(3) .menu-div {
+		border-left: none;
 	}
 }

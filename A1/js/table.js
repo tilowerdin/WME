@@ -1,3 +1,4 @@
+// ids for columns
 const id = 0;
 const country = 1;
 const birth = 2;
@@ -5,8 +6,13 @@ const phones = 3;
 const child = 4;
 const electric = 5;
 const internet = 9;
+
+// list of all possible columns
 const defaultCols = [id, country, birth, phones, child, electric, internet];
+
+// actual columns that are supposed to be drawn
 var drawCols = [id, country, birth, phones, child, electric, internet];
+// false for reversing the table
 var growing = true;
 
 function toggle_growing() {
@@ -18,6 +24,8 @@ function set_growing(grow) {
 	get_table();
 }
 
+// toggle the given id in drawCols which contains all columns that are supposed to be drawn
+// and make sure that this list is still ordered.
 function toggle_cols(id) {
 	var result = [];
 	var did = false;
@@ -42,8 +50,10 @@ function toggle_cols(id) {
 	get_table();
 }
 
+// add the current table to the document
 function get_table() {
 
+	// first remove the table
 	var thead = document.getElementById("thead");
 	if (thead != null) {
 		thead.parentNode.removeChild(thead);
@@ -53,26 +63,33 @@ function get_table() {
 		tbody.parentNode.removeChild(tbody);
 	}
 
+	// second draw it again
 	var table = document.getElementById('table');
 
+	// add the head of the table
 	var thead = get_table_head();
 	thead.id = "thead";
 	table.appendChild(thead);
 
+	// split rows of data
 	var data_rows = data.split("\n");
 
+	// sort data as it is supposed to be
 	if (!growing) {
 		data_rows.reverse();
 	}
 
+	// create body of table
 	var tbody = document.createElement('tbody');
 	tbody.id = "tbody";
 
+	// for each row of the data, create one row for the body of the table
 	for (var row in data_rows) {
 		var tr = document.createElement('tr');
 		
 		var elems = data_rows[row].split(",");
 
+		// check the coloumns that are supposed to be drawn and create cell for each of them
 		for (colID in drawCols) {
 			var col = drawCols[colID];
 			var td_id = document.createElement('td');
@@ -88,12 +105,16 @@ function get_table() {
 	table.appendChild(tbody);
 }
 
+// create the head of the table
 function get_table_head() {
+	// create one table row that is going to be the table head
 	var thead = document.createElement('thead');
 	var tr = document.createElement('tr');
+
+	// for each default coloumn, check if this column is supposed to be drawn
 	for (var colID in defaultCols) {
-		
 		if (colID in drawCols) {
+			// draw each column that is supposed to be drawn
 			var col = drawCols[colID];
 			var th = document.createElement('th');
 			switch(col) {
@@ -102,8 +123,8 @@ function get_table_head() {
 					break;
 				case country:
 					th.appendChild(document.createTextNode('Country '));
-					th.onClick = 'alert("Works");';
 
+					// add functions to the font awesome items
 					var up_link = document.createElement('a');
 					up_link.href = "javascript:set_growing(true);";
 					var arrow_up = document.createElement('i');
@@ -144,6 +165,7 @@ function get_table_head() {
 	return thead;
 }
 
+// remove " " from the beginning and end of the string
 function clean(str) {
 	var start = 0;
 	while(str[start] == " ") {
@@ -157,6 +179,7 @@ function clean(str) {
 	return str.slice(start, end);
 }
 
+// data
 var data = "001,Brazil              ,16.405             ,90.01936334        ,1.862             ,2201.808724                       ,4424.758692   ,-1.520402823         ,8.228535058     ,39.22                ,74             ,1.615173655                        ,-14.235004000,-51.925280000\n\
 002,Canada              ,10.625             ,70.70997244        ,1.668             ,15119.76414                       ,25069.86915   ,-3.953353186         ,2.944408564     ,80.17086651          ,80.9           ,1.415710422                        ,56.130366000 ,-106.346771000\n\
 003,Chile               ,15.04              ,97.01862561        ,1.873             ,3276.06449                        ,6451.631126   ,-2.610485847         ,7.47050527      ,38.8                 ,78.8           ,3.064076139                        ,-35.675147000,71.542969000\n\

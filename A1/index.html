@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8"/>
+	<meta name="author" content="Maximilian Kindt, Tilo Werdin"/>
+	<meta name="keywords" content="world data, table, countries"/>
+	<meta name="description" content="This is a website that contains some information about countries in the world." />
+
 	<title>World Data Overview</title>
 
 	<link rel="stylesheet" href="https://github.com/murtaugh/HTML5-Reset/blob/master/assets/css/reset.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/body.css">
 	<link rel="stylesheet" type="text/css" href="css/table.css">
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
-	<script type="text/javascript", src="js/table.js"></script>
-	<script type="text/javascript", src="js/navbar.js"></script>
+	
+	<script src="js/table.js"></script>
+	<script src="js/navbar.js"></script>
 
 	<!-- required for the page to scale properly inside any screen https://www.hongkiat.com/blog/responsive-web-nav/ -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 </head>
-<body onresize="onResize();get_table();">
+<body onresize="onResize();">
 	<header class="top-bar">
 		<!-- Navigation bar from https://www.hongkiat.com/blog/responsive-web-nav/ -->
 		<nav id="navbar" class="clearfix sticky">
@@ -57,11 +63,13 @@
 			Show/Hide: <a href="javascript:toggle_cols(birth);">birth rate</a>, <a href="javascript:toggle_cols(phones);">cellphones</a>, <a href="javascript:toggle_cols(child);">children / woman</a>, <a href="javascript:toggle_cols(electric);">electric usage</a>, <a href="javascript:toggle_cols(internet);">internet usage</a>
 		</div>
 
+		<!-- this table is filled with help of the following script -->
 		<table id="table">
 			
 		</table>
 		
-		<script type="text/javascript">get_table()</script>
+		<!-- this script fills the above table -->
+		<script>get_table()</script>
 	
 		<div class="showHide">	
 			Show/Hide: <a href="javascript:toggle_cols(birth);">birth rate / 100</a>, <a href="javascript:toggle_cols(phones);">cellphones / 100</a>, <a href="javascript:toggle_cols(child);">children / woman</a>, <a href="javascript:toggle_cols(electric);">electric usage</a>, <a href="javascript:toggle_cols(internet);">internet usage</a>
@@ -78,7 +86,7 @@
 
 		<div id="footerRight">
 			This solution has been created by:<br>
-			Team 11
+			Maximilian Kindt, Tilo Werdin, Team 11
 		</div>
 	</footer>
 </body>
