@@ -1,48 +1,56 @@
 .infotext {
-	display: block;
+    display: block;
 }
 
+/* Style of the text box */
 #box {
-	display: block;
-	width: 100%;
-	padding: var(--pad);
-	border: 1px solid var(--green);
-	box-sizing: border-box;
-	columns: 3;
+    display: block;
+    width: 100%;
+    /* Set padding by calling value from header.css (14 px) */
+    padding: var(--pad);
+    /* Set border color by calling value from header.css  (#9ac334) */
+    border: 1px solid var(--green);
+    box-sizing: border-box;
+    columns: 3;
 }
 
+/* Style for the body */
 .body {
-	max-width: 1170px;
-	position: relative;
-	margin: 0 auto;
-	padding-top: 80px;
+    max-width: 1170px;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 80px;
 }
 
+/* Setting the hyperlink color */
 a {
-	color: var(--green);
+    color: var(--green);
 }
 
+/* Setting the hyperlink color while hovering the link with the mouse */
 a:hover {
-	text-decoration: none;
-	color: var(--darkgreen);
+    text-decoration: none;
+    /* Set hyperlink color on hovering by calling value from header.css  (#4e7700) */
+    color: var(--darkgreen);
 }
 
+/* Shrink number of columns in the textbox if only 2 of them fit onto it */
 @media screen and (max-width: 1200px) {
-	#box {
-		columns: 2;
-	}
+    #box {
+        columns: 2;
+    }
 }
-
+/* Shrink number of columns in the textbox if only 1 of them fits onto it */
 @media screen and (max-width: 768px) {
-	#box {
-		columns: 1;
-	}
+    #box {
+        columns: 1;
+    }
 }
-
+/* Enable top padding for slim devices (more aesthetic on mobile) */
 @media screen and (max-width: 320px) {
-	.body {
-		padding-top: 160px;
-	}
+    .body {
+        padding-top: 160px;
+    }
 }
 
 

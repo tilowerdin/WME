@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Meta Information-->
 	<meta charset="utf-8"/>
 	<meta name="author" content="Maximilian Kindt, Tilo Werdin"/>
 	<meta name="keywords" content="world data, table, countries"/>
@@ -8,6 +9,7 @@
 
 	<title>World Data Overview</title>
 
+	<!-- Import of external style sheets and fonts-->
 	<link rel="stylesheet" href="https://github.com/murtaugh/HTML5-Reset/blob/master/assets/css/reset.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -16,7 +18,8 @@
 	<link rel="stylesheet" type="text/css" href="css/body.css">
 	<link rel="stylesheet" type="text/css" href="css/table.css">
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
-	
+
+	<!-- Import of Javascript-->
 	<script src="js/table.js"></script>
 	<script src="js/navbar.js"></script>
 
@@ -45,10 +48,12 @@
 	</header>
 
 	<div class="body">
+        <!-- Headline -->
 		<h1>
 			World Data Overview ...
 		</h1>
 
+        <!-- Textbox-->
 		<div id="box">
 			The demand for good-quality statistical data continues to increase. Timely and reliable statistics are key inputs to the broad development strategy. Improvements in the quality and quantity of data on all aspects of development are essential if we are to achieve the goal of a world without poverty.
 
@@ -59,6 +64,7 @@
 			Much of the data comes from the statistical systems of member countries, and the quality of global data depends on how well these national systems perform. The World Bank works to help developing countries improve the capacity, efficiency and effectiveness of national statistical systems. Without better and more comprehensive national data, it is impossible to develop effective policies, monitor the implementation of poverty reduction strategies, or monitor progress towards global goals. <a href="https://data.worldbank.org/about" target="_blank">the world bank</a>
 		</div>
 
+        <!-- Enables the hidding of table columns at the top of the table -->
 		<div class="showHide">	
 			Show/Hide: <a href="javascript:toggle_cols(birth);">birth rate</a>, <a href="javascript:toggle_cols(phones);">cellphones</a>, <a href="javascript:toggle_cols(child);">children / woman</a>, <a href="javascript:toggle_cols(electric);">electric usage</a>, <a href="javascript:toggle_cols(internet);">internet usage</a>
 		</div>
@@ -70,7 +76,8 @@
 		
 		<!-- this script fills the above table -->
 		<script>get_table()</script>
-	
+
+        <!-- Enables the hidding of table rows at the bottom of the table -->
 		<div class="showHide">	
 			Show/Hide: <a href="javascript:toggle_cols(birth);">birth rate / 100</a>, <a href="javascript:toggle_cols(phones);">cellphones / 100</a>, <a href="javascript:toggle_cols(child);">children / woman</a>, <a href="javascript:toggle_cols(electric);">electric usage</a>, <a href="javascript:toggle_cols(internet);">internet usage</a>
 		</div>
@@ -79,11 +86,13 @@
 	
 
 	<footer>
+        <!-- Left footer with Copyright and course information -->
 		<div id="footerLeft">
 			Copyright &#9400; 2018 world_data<br>
 			First course exercise <b>HTML, CSS and JS</b> of the lecture Web and Multimedia Engineering.
 		</div>
 
+        <!-- Right footer with our names and team -->
 		<div id="footerRight">
 			This solution has been created by:<br>
 			Maximilian Kindt, Tilo Werdin, Team 11
