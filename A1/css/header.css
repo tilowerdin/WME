@@ -30,7 +30,7 @@ nav {
 	z-index: 500;
 }
 
-/* let the navbar stay at the top of the side */
+/* let the navbar stay at the top of the screen */
 .sticky {
 	position: fixed;
 	top: 0;
