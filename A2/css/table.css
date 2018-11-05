@@ -1,19 +1,22 @@
+/* Style for table */
 table {
 	border-collapse: collapse;
 	width: 100%;
 }
 
+/* Style for the column hide element */
 .showHide {
 	color: #888888;
 	text-align: left;
 	padding-top: 8px;
 	padding-left: 8px;
 }
-
+/* Additional style for clickable parts the column hide element */
 .showHide a {
 	color: #aaaaaa;
 }
 
+/* Style for the table head */
 th {
 	border-bottom: 2px solid #dddddd;
 	text-align: left;
@@ -21,18 +24,23 @@ th {
 	white-space: nowrap;
 }
 
+/* Style for the table cells */
 td {
 	padding: 8px;
 }
 
+/* Style for the table rows */
 tr:nth-child(2n) {
 	background-color: #ddddee
 }
 
+/* Style for the green elements beside country */
 i {
 	color: var(--green);
 }
 
+
+/* All the next style definitions let collapse table columns if they don't fit on the screen. Starting on the right side of the table. */
 @media screen and (max-width: 865px) {
 	table th:nth-of-type(7) {
 		display: none;

@@ -1,3 +1,4 @@
+/* Define some constants */
 :root {
 	--pad: 14px;
 	--border-color: #999999;
@@ -5,6 +6,7 @@
 	--darkgreen: #4e7700;
 }
 
+/* Set some definitons for all elements */
 * {
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
@@ -12,16 +14,15 @@
 	font-style: normal;
 }
 
+/* Style for header */
 header {
 	max-width: 100%;
-
 }
 
-
-
+/* Style of navigation bar */
 nav {
-	/*height: 80px;*/
 	width: 100%;
+	/* Set gradient of navbar items*/
 	background: linear-gradient(#d1d1d1, #efefef);
 	position: relative;
 	border-collapse: collapse;
@@ -29,22 +30,22 @@ nav {
 	z-index: 500;
 }
 
+/* let the navbar stay at the top of the screen */
 .sticky {
 	position: fixed;
 	top: 0;
 	width: 100%;
 }
 
+/* Additional styles for the navbar tabs */
 nav ul {
-	/*background: #eeeeee;*/
 	padding: 0;
 	margin: 0 auto;
 	max-width: 1170px;
-	/*height: 80px;*/
 }
 
+/* Additional styles for the navbar tabs */
 nav li {
-	/*background: #eeeeee;*/
 	display: inline-block;
 	float: left;
 	height: 100%;
@@ -52,21 +53,24 @@ nav li {
 	vertical-align: middle;
 }
 
-
+/* Set style for the top right corner logo */
 #logo {
 	display: block;
 	width: 150px;
 	height: 80px;
 	margin-right: 50px;
 	margin-left: var(--pad);
+	/* Set the logo image */
 	background-image: url("../img/logo_color.png");
 	transition: 1s;
 }
 
+/* Change the logo image on hovering with the mouse */
 #logo:hover {
 	background-image: url('../img/logo_bw.png');
 }
 
+/* Additional styles for navbar */
 .clearfix:before,
 .clearfix:after {
 	content: " ";
@@ -80,6 +84,7 @@ nav li {
 	zoom: 1;
 }
 
+/* Style of a Elements in the navbar */
 nav a {
 	color: black;
 	display: inline-block;
@@ -87,7 +92,8 @@ nav a {
 	padding: var(--pad);
 }
 
-.menu {
+/* Style for the navbar tabs */
+.menu-div {
 	display: table-cell;
 	height: 80px;
 	vertical-align: middle;
@@ -95,29 +101,34 @@ nav a {
 	box-sizing: border-box;
 	transition: background 1s;
 	padding: var(--pad);
+	/* Don't change the mouse cursor on hovering in the navbar */
 	-moz-user-select: none;
 	-webkit-user-select: none;
-	-khtml-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 }
 
-.menu:hover {
+/* Style of navbar items when hovering over them with the mouse */
+.menu-div:hover {
 	background: #bbbbbb;
 }
 
 nav i {
 	color: #222222;
 }
+nav a {
 
-nav li:nth-child(3) .menu {
+}
+nav li:nth-child(3) .menu-div {
 	border-left: 1px solid #aaaaaa;
 }
 
+/* Hide function-only element */
 #pull {
 	display: none;
 }
 
+/* Replace navbar on too narrow screens with some kind of sidebar */
 @media screen and (max-width: 921px) {
 
 	#logo {
@@ -125,7 +136,7 @@ nav li:nth-child(3) .menu {
 		display: block;
 		float: left;
 	}
-	.menu {
+	.menu-div {
 		display: none;
 		height: auto;
 		background: white;
@@ -143,17 +154,20 @@ nav li:nth-child(3) .menu {
 
 
 	#pull {
-		/*background: #eeeeee;*/
 		display: block;
 		height: 80px;
 		float: none;
 		overflow: hidden;
 	}
+	
 	#pull div {
-		/*display: table-cell;*/
 		height: 100%;
 		vertical-align: middle;
 		text-align: right;
 		padding: var(--pad)
+	}
+
+	nav li:nth-child(3) .menu-div {
+		border-left: none;
 	}
 }

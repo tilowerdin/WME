@@ -1,3 +1,4 @@
+/* Style for the footer */
 footer {
 	max-width: 1170px;
 	position: relative;
@@ -7,15 +8,18 @@ footer {
 	border-top: solid 1px var(--green);
 }
 
+/* Style for the divs in the footer */
 footer div {
 	font-size: 12px;
 }
 
+/* Style for the left part of the footer */
 #footerLeft {
 	display: inline-block;
 	float: left;
 }
 
+/* Style for the right part of the footer */
 #footerRight {
 	display: inline-block;
 	float: right;
