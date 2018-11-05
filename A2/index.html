@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>World Data Overview</title>
+
+	<link rel="stylesheet" href="https://github.com/murtaugh/HTML5-Reset/blob/master/assets/css/reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/body.css">
+	<link rel="stylesheet" type="text/css" href="css/table.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+	<script type="text/javascript", src="js/table.js"></script>
+	<script type="text/javascript", src="js/navbar.js"></script>
+
+	<!-- required for the page to scale properly inside any screen https://www.hongkiat.com/blog/responsive-web-nav/ -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+</head>
+<body onresize="onResize();get_table();">
+	<header class="top-bar">
+		<!-- Navigation bar from https://www.hongkiat.com/blog/responsive-web-nav/ -->
+		<nav id="navbar" class="clearfix sticky">
+			
+			<ul class="clearfix">
+				<li><div id="logo" onclick="window.location='index.html'"></div></li>
+				<li id="pull" onclick="toggle_nav_elements();"><div><i class="fas fa-bars"></i></div></li>
+				<li class="menu-li"><div class="menu"><i class="fas fa-bars"></i> A1 - Table</div></li>
+				<li class="menu-li"><div class="menu"><i class="fas fa-bars"></i> A1 - Parse</div></li>
+				<li class="menu-li"><div class="menu"><i class="fas fa-bars"></i> A1 - Save</div></li>
+				<li class="menu-li"><div class="menu"><i class="fas fa-bars"></i> A1 - Print</div></li>
+				<li class="menu-li"><div class="menu"><i class="fas fa-bars"></i> A1 - REST</div></li>
+				<li class="menu-li"><div class="menu"><i class="fas fa-bars"></i> A1 - Vis</div></li>		
+			</ul>
+			
+		</nav>
+
+	</header>
+
+	<div class="body">
+		<h1>
+			World Data Overview ...
+		</h1>
+
+		<div id="box">
+			The demand for good-quality statistical data continues to increase. Timely and reliable statistics are key inputs to the broad development strategy. Improvements in the quality and quantity of data on all aspects of development are essential if we are to achieve the goal of a world without poverty.
+
+			Good data are needed to set baselines, identify effective public and private actions, set goals and targets, monitor progress and evaluate impacts. They are also an essential tool of good government, providing means for people to assess what governments do and helping them to participate directly in the development process.
+
+			At the World Bank, the Development Data Group coordinates statistical and data work and maintains a number of macro, financial and sector databases. Working closely with the Bank's regions and Global Practices, the group is guided by professional standards in the collection, compilation and dissemination of data to ensure that all data users can have confidence in the quality and integrity of the data produced.
+
+			Much of the data comes from the statistical systems of member countries, and the quality of global data depends on how well these national systems perform. The World Bank works to help developing countries improve the capacity, efficiency and effectiveness of national statistical systems. Without better and more comprehensive national data, it is impossible to develop effective policies, monitor the implementation of poverty reduction strategies, or monitor progress towards global goals. <a href="https://data.worldbank.org/about" target="_blank">the world bank</a>
+		</div>
+
+		<div class="showHide">	
+			Show/Hide: <a href="javascript:toggle_cols(birth);">birth rate</a>, <a href="javascript:toggle_cols(phones);">cellphones</a>, <a href="javascript:toggle_cols(child);">children / woman</a>, <a href="javascript:toggle_cols(electric);">electric usage</a>, <a href="javascript:toggle_cols(internet);">internet usage</a>
+		</div>
+
+		<table id="table">
+			
+		</table>
+		
+		<script type="text/javascript">get_table()</script>
+	
+		<div class="showHide">	
+			Show/Hide: <a href="javascript:toggle_cols(birth);">birth rate / 100</a>, <a href="javascript:toggle_cols(phones);">cellphones / 100</a>, <a href="javascript:toggle_cols(child);">children / woman</a>, <a href="javascript:toggle_cols(electric);">electric usage</a>, <a href="javascript:toggle_cols(internet);">internet usage</a>
+		</div>
+
+	</div>
+	
+
+	<footer>
+		<div id="footerLeft">
+			Copyright &#9400; 2018 world_data<br>
+			First course exercise <b>HTML, CSS and JS</b> of the lecture Web and Multimedia Engineering.
+		</div>
+
+		<div id="footerRight">
+			This solution has been created by:<br>
+			Team 11
+		</div>
+	</footer>
+</body>
+</html>

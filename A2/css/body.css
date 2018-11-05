@@ -1,0 +1,49 @@
+.infotext {
+	display: block;
+}
+
+#box {
+	display: block;
+	width: 100%;
+	padding: var(--pad);
+	border: 1px solid var(--green);
+	box-sizing: border-box;
+	columns: 3;
+}
+
+.body {
+	max-width: 1170px;
+	position: relative;
+	margin: 0 auto;
+	padding-top: 80px;
+}
+
+a {
+	color: var(--green);
+}
+
+a:hover {
+	text-decoration: none;
+	color: var(--darkgreen);
+}
+
+@media screen and (max-width: 1200px) {
+	#box {
+		columns: 2;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#box {
+		columns: 1;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.body {
+		padding-top: 160px;
+	}
+}
+
+
+
