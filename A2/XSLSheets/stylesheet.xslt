@@ -2,22 +2,34 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
         <html>
-            <head>
+            <!--<head>
                 <link rel="stylesheet" type="text/css" href="../css/table.css"/>
                 <link rel="stylesheet" type="text/css" href="../css/header.css"/>
-            </head>
+            </head>-->
             <body>
-                <h1>World Data Overview</h1>
-                <table>
+              <!--  <h1>World Data Overview</h1> -->
+                <table id="world_table" >
                     <thead>
+                        <colgroup>
+                            <col/>
+                            <col/>
+                            <col/>
+                            <col/>
+                            <col/>
+                            <col/>
+                            <col/>
+                        </colgroup>
                     <tr>
                         <th style="text-align:left">ID</th>
-                        <th style="text-align:left">Country</th>
-                        <th style="text-align:left">Birth rate / 100</th>
-                        <th style="text-align:left">Cellphone / 100</th>
-                        <th style="text-align:left">Children / Women</th>
-                        <th style="text-align:left">Electric Usage</th>
-                        <th style="text-align:left">Internet Usage</th>
+                        <th style="text-align:left">Country
+                            <a href="javascript:sortTable(true);"><i class="fas fa-angle-up"/> </a>
+                            <a href="javascript:sortTable(false);"><i class="fas fa-angle-down"/> </a>
+                        </th>
+                        <th style="text-align:left">birth rate / 100</th>
+                        <th style="text-align:left">cellphone / 100</th>
+                        <th style="text-align:left">children / women</th>
+                        <th style="text-align:left">electric usage</th>
+                        <th style="text-align:left">internet usage</th>
                     </tr>
                     </thead>
                     <tbody>
