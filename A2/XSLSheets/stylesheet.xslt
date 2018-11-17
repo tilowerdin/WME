@@ -2,14 +2,12 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
         <html>
-            <!--<head>
-                <link rel="stylesheet" type="text/css" href="../css/table.css"/>
-                <link rel="stylesheet" type="text/css" href="../css/header.css"/>
-            </head>-->
+
             <body>
-              <!--  <h1>World Data Overview</h1> -->
+                <!-- Definiere Tabelle fuer Werte-->
                 <table id="world_table" >
                     <thead>
+                        <!-- Definiere Spalten fuer Verwendung im Javascript -->
                         <colgroup>
                             <col/>
                             <col/>
@@ -20,6 +18,7 @@
                             <col/>
                         </colgroup>
                     <tr>
+                        <!-- Definiere Spalten inklusive Eigenschaften und Namen fuer das HTML-Dokument -->
                         <th style="text-align:left">ID</th>
                         <th style="text-align:left">Country
                             <a href="javascript:sortTable(true);"><i class="fas fa-angle-up"/> </a>
@@ -33,6 +32,7 @@
                     </tr>
                     </thead>
                     <tbody>
+                        <!-- Erstelle pro Country im XML eine Zeile mit Ensprechenten Spaltenwerten-->
                     <xsl:for-each select="Countries/Country">
                         <tr>
                             <td><xsl:value-of select="id"/></td>
