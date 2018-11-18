@@ -10,7 +10,7 @@ include "World_Data_Parser.php";
 $csvArray = WorldDataParser::parseCSV("../vorlagen/world_data_v1.csv");
 $saveToXMLSuccesfull = WorldDataParser::saveXML($csvArray);
 
-if ($csvArray) {
+if ($saveToXMLSuccesfull) {
     echo "XML Speicherstatus: erfolgreich";
 } else {
     echo "XML Speicherstatus: nicht erfolgreich";
