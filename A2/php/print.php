@@ -95,7 +95,7 @@
 
     <!-- Enables the hidding of table rows at the bottom of the table -->
     <div class="showHide">
-        Show/Hide: <a href="javascript:toggle_cols(birth);">birth rate / 100</a>, <a href="javascript:toggle_cols(phones);">cellphones / 100</a>, <a href="javascript:toggle_cols(child);">children / woman</a>, <a href="javascript:toggle_cols(electric);">electric usage</a>, <a href="javascript:toggle_cols(internet);">internet usage</a>
+        Show/Hide: <a href="javascript:show_hide_column(2,true);">birth rate</a>, <a href="javascript:show_hide_column(3,true);">cellphones</a>, <a href="javascript:show_hide_column(4,true);">children / woman</a>, <a href="javascript:show_hide_column(5,true);">electric usage</a>, <a href="javascript:show_hide_column(6,true);">internet usage</a>
     </div>
 
 </div>
