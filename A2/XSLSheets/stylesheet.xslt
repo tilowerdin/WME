@@ -25,7 +25,7 @@
                             <a href="javascript:sortTable(false);"><i class="fas fa-angle-down"/> </a>
                         </th>
                         <th style="text-align:left">birth rate / 100</th>
-                        <th style="text-align:left">cellphone / 100</th>
+                        <th style="text-align:left">cellphones / 100</th>
                         <th style="text-align:left">children / women</th>
                         <th style="text-align:left">electric usage</th>
                         <th style="text-align:left">internet usage</th>
