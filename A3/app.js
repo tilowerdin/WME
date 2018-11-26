@@ -33,16 +33,17 @@ converter.then((obj) => {
 	console.log("done");
 });
 
-function printJson() {
-	console.log(json);
-}
 
-setTimeout(printJson, 2000);
 
 /**************************************************************************
 ********************** handle HTTP METHODS ***********************
 **************************************************************************/
+app.get("/item/:id",function (req,res) {
+    let id = req.params.id;
+    console.log(id);
+    res.send(json);
 
+});
 
 // DO NOT CHANGE!
 // bind server to port
