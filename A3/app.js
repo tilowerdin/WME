@@ -6,6 +6,7 @@ var sys = require('util');
 var path = require('path');
 var bodyParser = require('body-parser');
 var Converter = require("csvtojson").Converter;
+var csv = require("csvtojson");
 
 //register body-parser to handle json from res / req
 app.use( bodyParser.json() );
@@ -19,6 +20,24 @@ app.use( express.static( path.join(__dirname, "public") ) );
 /**************************************************************************
 ****************************** csv2json *********************************
 **************************************************************************/
+
+var csvFilePath = "./world_data.csv"
+var converter = new Converter({});
+converter
+.fromFile(csvFilePath);
+
+var json;
+
+converter.then((obj) => {
+	json = obj;
+	console.log("done");
+});
+
+function printJson() {
+	console.log(json);
+}
+
+setTimeout(printJson, 2000);
 
 /**************************************************************************
 ********************** handle HTTP METHODS ***********************
