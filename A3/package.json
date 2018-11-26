@@ -8,5 +8,8 @@
   },
   "author": "TEAM_00",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "csvtojson": "^2.0.8",
+    "express": "^4.16.4"
+  }
 }
