@@ -118,6 +118,17 @@ app.get("/properties/:num",function (req,res) {
     res.send(answer);
 });
 
+// POST call "/items"
+// json-Objekt mit Property name und zwei beliebigen weiteren Properties
+app.post("/items", function(req, res) {
+    var newCountry = req.body;
+    let name = newCountry.name;
+    var highestID = parseInt(json[json.length-1]["id"]);
+    newCountry["id"] = (highestID+1).toString();
+    json.push(newCountry);
+    res.send("Added country " + name + " to list!");
+});
+
 
 // DO NOT CHANGE!
 // bind server to port
