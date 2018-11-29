@@ -118,17 +118,38 @@ app.get("/properties/:num",function (req,res) {
     res.send(answer);
 });
 
+// TODO: check
 // POST call "/items"
 // json-Objekt mit Property name und zwei beliebigen weiteren Properties
 app.post("/items", function(req, res) {
+    console.log(req.body);
     var newCountry = req.body;
     let name = newCountry.name;
-    var highestID = parseInt(json[json.length-1]["id"]);
+    var highestID = parseInt(json[-1]["id"]);
     newCountry["id"] = (highestID+1).toString();
     json.push(newCountry);
     res.send("Added country " + name + " to list!");
 });
 
+// DELETE call "/items"
+app.delete("/items", function(req, res) {
+    let name = json[-1]["name"];
+    json.splice(-1,1);
+    res.send("Deleted last country: " + name + "!");
+});
+
+// DELETE call "/items/id"
+app.delete("/items/:id", function(req, res) {
+    let id = req.params.id;
+    var answer = "No such id " + id + " in database";
+    for(var i = 0; i < json.length; i++) {
+        if(json[i]["id"] == id) {
+            answer = "Item " + id + " deleted successfully.";
+            break;
+        }
+    }
+    res.send(answer);
+});
 
 // DO NOT CHANGE!
 // bind server to port
