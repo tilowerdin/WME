@@ -43,10 +43,10 @@ app.get("/items", function (req, res) {
 
 // GET call "/items/id"
 app.get("/items/:id", function (req, res) {
-    let id = req.params.id;
+    let id = parseInt(req.params.id);
     var answer = "No such id " + id + " in database.";
     for (var i = 0; i < json.length; i++) {
-        if (json[i]["id"] == id) {
+        if (json[i].id== id) {
             answer = json[i];
         }
     }
@@ -103,6 +103,8 @@ app.get("/properties/:num", function (req, res) {
     let num = parseInt(req.params.num);
     var answer = "No such property available.";
 
+
+
     if (num >= 0) {
         var i = 0;
         for (var key in json[0]) {
@@ -134,18 +136,22 @@ app.post("/items", function (req, res) {
 });
 
 // DELETE call "/items"
+// HOW TO TEST: curl -X DELETE "localhost:3000/items"
 app.delete("/items", function (req, res) {
-    let name = json[-1]["name"];
+    let name = json[json.length - 1].name;
     json.splice(-1, 1);
+
     res.send("Deleted last country: " + name + "!");
 });
 
 // DELETE call "/items/id"
+// HOW TO TEST: curl -X DELETE "localhost:3000/items/25"
 app.delete("/items/:id", function (req, res) {
-    let id = req.params.id;
+    let id = parseInt(req.params.id);
     var answer = "No such id " + id + " in database";
     for (var i = 0; i < json.length; i++) {
-        if (json[i]["id"] == id) {
+        if (json[i].id == id) {
+            json.splice(i, 1);
             answer = "Item " + id + " deleted successfully.";
             break;
         }
