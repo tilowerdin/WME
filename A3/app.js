@@ -47,7 +47,7 @@ app.get("/items/:id", function (req, res) {
     var answer = "No such id " + id + " in database.";
     for (var i = 0; i < json.length; i++) {
         if (json[i].id== id) {
-            answer = json[i];
+            answer = [json[i]];
         }
     }
 
