@@ -15,7 +15,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // END DO NOT CHANGE!
 
-
 /**************************************************************************
  ****************************** csv2json *********************************
  **************************************************************************/
@@ -38,20 +37,22 @@ converter.then((obj) => {
  **************************************************************************/
 // GET call "/items"
 app.get("/items", function (req, res) {
+    console.log(json);
     res.send(json);
 });
 
 // GET call "/items/id"
 app.get("/items/:id", function (req, res) {
     let id = parseInt(req.params.id);
-    var answer = "No such id " + id + " in database.";
+    var answer = ["err","No such id " + id + " in database."];
     for (var i = 0; i < json.length; i++) {
         if (json[i].id== id) {
             answer = [json[i]];
         }
     }
 
-    // sending message "ERROR" on failure
+    console.log(answer);
+    
     res.send(answer);
 });
 
@@ -59,7 +60,7 @@ app.get("/items/:id", function (req, res) {
 app.get("/items/:id1/:id2", function (req, res) {
     let id1 = parseInt(req.params.id1);
     let id2 = parseInt(req.params.id2);
-    var answer = "Range not possible.";
+    var answer = ["err","Range not possible."];
 
     if (id1 > 0 &&
         id1 < id2
@@ -73,7 +74,7 @@ app.get("/items/:id1/:id2", function (req, res) {
         }
         while (true) {
             if (i >= json.length) {
-                answer = "Range not possible.";
+                answer = ["err","Range not possible."];
                 break;
             }
             answer.push(json[i]);
@@ -84,6 +85,7 @@ app.get("/items/:id1/:id2", function (req, res) {
         }
     }
 
+    console.log(answer);
     res.send(answer);
 });
 
@@ -101,7 +103,7 @@ app.get("/properties", function (req, res) {
 // GET call "/properties/num"
 app.get("/properties/:num", function (req, res) {
     let num = parseInt(req.params.num);
-    var answer = "No such property available.";
+    var answer = ["err","No such property available."];
 
 
 
@@ -124,7 +126,7 @@ app.get("/properties/:num", function (req, res) {
 // json-Objekt mit Property name und zwei beliebigen weiteren Properties
 // teste mit:  curl --data "{\"name\": \"Isengard\",\"cell_phones_per_100\":0,\"children_per_woman\":1000"} localhost:3000/items -H "Content-Type: application/json"
 app.post("/items", function (req, res) {
-    console.log(req.body);
+    console.log(req);
     var newCountry = req.body;
     let name = newCountry.name;
     var lastEntry = json[json.length - 1];
@@ -148,7 +150,7 @@ app.delete("/items", function (req, res) {
 // HOW TO TEST: curl -X DELETE "localhost:3000/items/25"
 app.delete("/items/:id", function (req, res) {
     let id = parseInt(req.params.id);
-    var answer = "No such id " + id + " in database";
+    var answer = ["err","No such id " + id + " in database"];
     for (var i = 0; i < json.length; i++) {
         if (json[i].id == id) {
             json.splice(i, 1);
