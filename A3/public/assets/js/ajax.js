@@ -112,6 +112,25 @@ $("#submit_country").click(function () {
 });
 
 $("#rm_submit").click(function () {
+    var country_id = $("#country_delete_id").val();
+    
+    var url = "items";
+    
+    if (country_id != "") {
+        url += "/" + country_id;
+    }
+    
+    $.ajax({
+        type: "DELETE",
+        url: url,
+        async: true,
+        success: function (data) {
+            alert(data);
+        },
+        error: function (jqXHR, text, err) {
+            alert(err);
+        }
+    })
     
     return false;
 });
