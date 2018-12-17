@@ -1,6 +1,13 @@
+var hide = []
+
+function hideCols() {
+    for(var i = 0; i < hide.length; i++) {
+        $(hide[i]).css({"display":"none"});
+    }
+    
+}
+
 $("#filter_countries").click(function () {
-
-
     var country_filter_range = $("#country_filter_range").val();
     var country_filter_id = $("#country_filter_id").val();
 
@@ -140,6 +147,18 @@ $("#rm_submit").click(function () {
     return false;
 });
 
+$("#hide_selected_prop").click(function () {
+    var prop = $("#prop_selection").val();
+    
+    $(".colID").css({"display":"none"});
+})
+
+$("#show_selected_prop").click(function () {
+    var prop = $("#prop_selection");
+    
+    alert(prop[0].selectedIndex);
+})
+
 $("document").ready(function () {
     $.ajax({
         type: "GET",
@@ -157,5 +176,6 @@ $("document").ready(function () {
         error: function (jqXHR, text, err) {
             alert(err);
         }
-    })
+    });
+    
 })
