@@ -1,4 +1,4 @@
-var hide = []
+var props = [];
 
 function hideCols() {
     for(var i = 0; i < hide.length; i++) {
@@ -16,35 +16,19 @@ $("#filter_countries").click(function () {
 
     var url = "/items";
     if (country_filter_range != "") {
-        
+
         country_filter_range = country_filter_range.split("-");
-        
+
         // catch several faulty inputs
         var wrongInput = false;
         var firstInput = -1;
         var secondInput = -1;
-        
-//        if(country_filter_range.length != 2) {
-//            wrongInput = true;
-//        }
-//        if((firstInput = parseInt(country_filter_range[0])) == NaN) {
-//            wrongInput = true;
-//        }
-//        if((secondInput = parseInt(country_filter_range[1])) == NaN) {
-//            wrongInput = true;
-//        }
-//        if(firstInput < 1) {
-//            wrongInput = true;
-//        }
-//        if(firstInput > secondInput) {
-//            wrongInput = true;
-//        }
-        
-        if (   country_filter_range.length != 2
-            || (firstInput = parseInt(country_filter_range[0])) == NaN 
+
+        if (country_filter_range.length != 2
+            || (firstInput = parseInt(country_filter_range[0])) == NaN
             || (secondInput = country_filter_range[1]) == NaN
             || firstInput < 1
-            || firstInput > secondInput){
+            || firstInput > secondInput) {
             wrongInput = true;
         }
 
@@ -52,9 +36,9 @@ $("#filter_countries").click(function () {
             alert("Range not possible!");
             return false;
         }
-        
+
         url += "/" + firstInput.toString() + "/" + secondInput.toString();
-        
+
 
     } else if (country_filter_id != "") {
         url += "/" + country_filter_id;
@@ -65,11 +49,11 @@ $("#filter_countries").click(function () {
         url: url,
         async: true,
         success: function (data) {
-            if(data[0] == "err") {
+            if (data[0] == "err") {
                 alert(data[1]);
                 return;
             }
-            
+
             $("#table_body").empty();
 
             $(function () {
@@ -92,6 +76,8 @@ $("#filter_countries").click(function () {
                     ).appendTo('#table_body');
                 });
             });
+            
+            $(`td,th`).show();
         },
         error: function (jqXHR, text, err) {
             alert(err);
@@ -119,19 +105,19 @@ $("#submit_country").click(function () {
             alert(err);
         }
     });
-    
+
     return false;
 });
 
 $("#rm_submit").click(function () {
     var country_id = $("#country_delete_id").val();
-    
+
     var url = "items";
-    
+
     if (country_id != "") {
         url += "/" + country_id;
     }
-    
+
     $.ajax({
         type: "DELETE",
         url: url,
@@ -143,21 +129,9 @@ $("#rm_submit").click(function () {
             alert(err);
         }
     })
-    
+
     return false;
 });
-
-$("#hide_selected_prop").click(function () {
-    var prop = $("#prop_selection").val();
-    
-    $(".colID").css({"display":"none"});
-})
-
-$("#show_selected_prop").click(function () {
-    var prop = $("#prop_selection");
-    
-    alert(prop[0].selectedIndex);
-})
 
 $("document").ready(function () {
     $.ajax({
@@ -165,17 +139,44 @@ $("document").ready(function () {
         url: "/properties",
         async: true,
         success: function (data) {
-
             $(function () {
                 $.each(data, function (i, item) {
                     $('#prop_selection').append($("<option />").val(item).text(item));
                 });
             });
 
+            props = data;
         },
         error: function (jqXHR, text, err) {
             alert(err);
         }
     });
-    
 })
+
+
+$("#show_selected_prop").click(function () {
+    var prop = $("#prop_selection");
+    var selectorValue = prop.val();
+    var columnNumber = getColNumber(selectorValue);
+    console.log(prop.val());
+    $(`td:nth-child(${columnNumber}),th:nth-child(${columnNumber})`).show();
+
+});
+
+$("#hide_selected_prop").click(function () {
+    var prop = $("#prop_selection");
+
+    var selectorValue = prop.val();
+    var columnNumber = getColNumber(selectorValue);
+    
+    $(`td:nth-child(${columnNumber}),th:nth-child(${columnNumber})`).hide();
+});
+
+function getColNumber(id) {
+    for(var i = 0; i < props.length; i++) {
+        if(id == props[i]) {
+            return i+1;
+        }
+    }
+    return -1;
+}
