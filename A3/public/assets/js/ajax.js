@@ -9,14 +9,14 @@ $("#filter_countries").click(function () {
 
     var url = "/items";
     if (country_filter_range != "") {
-        
+
         country_filter_range = country_filter_range.split("-");
-        
+
         // catch several faulty inputs
         var wrongInput = false;
         var firstInput = -1;
         var secondInput = -1;
-        
+
 //        if(country_filter_range.length != 2) {
 //            wrongInput = true;
 //        }
@@ -32,12 +32,12 @@ $("#filter_countries").click(function () {
 //        if(firstInput > secondInput) {
 //            wrongInput = true;
 //        }
-        
-        if (   country_filter_range.length != 2
-            || (firstInput = parseInt(country_filter_range[0])) == NaN 
+
+        if (country_filter_range.length != 2
+            || (firstInput = parseInt(country_filter_range[0])) == NaN
             || (secondInput = country_filter_range[1]) == NaN
             || firstInput < 1
-            || firstInput > secondInput){
+            || firstInput > secondInput) {
             wrongInput = true;
         }
 
@@ -45,9 +45,9 @@ $("#filter_countries").click(function () {
             alert("Range not possible!");
             return false;
         }
-        
+
         url += "/" + firstInput.toString() + "/" + secondInput.toString();
-        
+
 
     } else if (country_filter_id != "") {
         url += "/" + country_filter_id;
@@ -58,11 +58,11 @@ $("#filter_countries").click(function () {
         url: url,
         async: true,
         success: function (data) {
-            if(data[0] == "err") {
+            if (data[0] == "err") {
                 alert(data[1]);
                 return;
             }
-            
+
             $("#table_body").empty();
 
             $(function () {
@@ -85,6 +85,9 @@ $("#filter_countries").click(function () {
                     ).appendTo('#table_body');
                 });
             });
+            //for (let i = 1; i < 15; i++) {
+                $(`td,th`).show();
+            //}
         },
         error: function (jqXHR, text, err) {
             alert(err);
@@ -112,19 +115,19 @@ $("#submit_country").click(function () {
             alert(err);
         }
     });
-    
+
     return false;
 });
 
 $("#rm_submit").click(function () {
     var country_id = $("#country_delete_id").val();
-    
+
     var url = "items";
-    
+
     if (country_id != "") {
         url += "/" + country_id;
     }
-    
+
     $.ajax({
         type: "DELETE",
         url: url,
@@ -136,7 +139,7 @@ $("#rm_submit").click(function () {
             alert(err);
         }
     })
-    
+
     return false;
 });
 
@@ -158,4 +161,125 @@ $("document").ready(function () {
             alert(err);
         }
     })
-})
+});
+
+$(function () {
+
+
+
+    $("#show_selected_prop").click(function () {
+        var prop = $("#prop_selection");
+
+        var columnNumber = 0;
+        var selectorValue = prop.val();
+        switch (selectorValue) {
+            case "id":
+                columnNumber = 1;
+                console.log("ID wurde ausgewaehlt");
+                break;
+            case "name":
+                columnNumber = 2;
+                break;
+            case "birth_rate_per_1000":
+                columnNumber = 3;
+                break;
+            case "cell_phones_per_100":
+                columnNumber = 4;
+                break;
+            case "children_per_woman":
+                columnNumber = 5;
+                break;
+            case "electricity_consumption_per_capita":
+                columnNumber = 6;
+                break;
+            case "gdp_per_capita":
+                columnNumber = 7;
+                break;
+            case "gdp_per_capita_growth":
+                columnNumber = 8;
+                break;
+            case "inflation_annual":
+                columnNumber = 9;
+                break;
+            case "internet_user_per_100":
+                columnNumber = 10;
+                break;
+            case "life_expectancy":
+                columnNumber = 11;
+                break;
+            case "military_expenditure_percent_of_gdp":
+                columnNumber = 12;
+                break;
+            case "gps_lat":
+                columnNumber = 13;
+                break;
+            case "gps_long":
+                columnNumber = 14;
+                break;
+            default:
+                console.log("ALARM!!!");
+                break;
+
+        }
+        console.log(prop.val());
+        $(`td:nth-child(${columnNumber}),th:nth-child(${columnNumber})`).show();
+
+    });
+
+    $("#hide_selected_prop").click(function () {
+        var prop = $("#prop_selection");
+
+        var columnNumber = 0;
+        var selectorValue = prop.val();
+        switch (selectorValue) {
+            case "id":
+                columnNumber = 1;
+                console.log("ID wurde ausgewaehlt");
+                break;
+            case "name":
+                columnNumber = 2;
+                break;
+            case "birth_rate_per_1000":
+                columnNumber = 3;
+                break;
+            case "cell_phones_per_100":
+                columnNumber = 4;
+                break;
+            case "children_per_woman":
+                columnNumber = 5;
+                break;
+            case "electricity_consumption_per_capita":
+                columnNumber = 6;
+                break;
+            case "gdp_per_capita":
+                columnNumber = 7;
+                break;
+            case "gdp_per_capita_growth":
+                columnNumber = 8;
+                break;
+            case "inflation_annual":
+                columnNumber = 9;
+                break;
+            case "internet_user_per_100":
+                columnNumber = 10;
+                break;
+            case "life_expectancy":
+                columnNumber = 11;
+                break;
+            case "military_expenditure_percent_of_gdp":
+                columnNumber = 12;
+                break;
+            case "gps_lat":
+                columnNumber = 13;
+                break;
+            case "gps_long":
+                columnNumber = 14;
+                break;
+            default:
+                console.log("ALARM!!!");
+                break;
+
+        }
+        $(`td:nth-child(${columnNumber}),th:nth-child(${columnNumber})`).hide();
+    });
+});
