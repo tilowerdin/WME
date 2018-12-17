@@ -105,13 +105,11 @@ app.get("/properties/:num", function (req, res) {
     let num = parseInt(req.params.num);
     var answer = ["err","No such property available."];
 
-
-
     if (num >= 0) {
         var i = 0;
         for (var key in json[0]) {
             if (i == num) {
-                answer = key;
+                answer = [key];
                 break;
             }
             i++;

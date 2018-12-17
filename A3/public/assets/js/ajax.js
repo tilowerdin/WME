@@ -65,8 +65,6 @@ $("#filter_countries").click(function () {
             
             $("#table_body").empty();
 
-            // data = $.parseJSON(data);
-
             $(function () {
                 $.each(data, function (i, item) {
                     $('<tr>').append(
@@ -76,7 +74,14 @@ $("#filter_countries").click(function () {
                         $('<td>').addClass("colCell").text(item.cell_phones_per_100),
                         $('<td>').addClass("colChildren").text(item.children_per_woman),
                         $('<td>').addClass("colElectricity").text(item.electricity_consumption_per_capita),
-                        $('<td>').addClass("colInternet").text(item.internet_user_per_100)
+                        $('<td>').addClass("colGDP").text(item.gdp_per_capita),
+                        $('<td>').addClass("colGDPGrowth").text(item.gdp_per_capita_growth),
+                        $('<td>').addClass("colInflation").text(item.inflation_annual),
+                        $('<td>').addClass("colInternet").text(item.internet_user_per_100),
+                        $('<td>').addClass("colLife").text(item.life_expectancy),
+                        $('<td>').addClass("colMilitary").text(item.military_expenditure_percent_of_gdp),
+                        $('<td>').addClass("colGPSLat").text(item.gps_lat),
+                        $('<td>').addClass("colGPSLong").text(item.gps_long)
                     ).appendTo('#table_body');
                 });
             });
