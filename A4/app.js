@@ -6,6 +6,7 @@ var sys = require('util');
 var path = require('path');
 var bodyParser = require('body-parser');
 var Converter = require("csvtojson").Converter;
+var fs = require('fs');
 
 //register body-parser to handle json from res / req
 app.use(bodyParser.json());
@@ -35,9 +36,23 @@ converter.then((obj) => {
 });
 
 
+var bar_dataCSV = "world_data.csv"
+var bar_data;
+
+fs.readFile(bar_dataCSV, 'utf8', function(err, contents) {
+    bar_data = contents;
+    console.log(err);
+});
+
+
 /**************************************************************************
  ********************** handle HTTP METHODS ***********************
  **************************************************************************/
+app.get("/"+bar_dataCSV, function(req, res){
+    console.log(bar_data);
+    res.send(bar_data);
+});
+
 // GET call "/items"
 // returns all available items
 app.get("/items", function (req, res) {

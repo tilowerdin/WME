@@ -134,6 +134,21 @@ nav a#pull {
 		display: none;
 }
 
+/* Quelle: http://www.d3noob.org/2014/02/making-bar-chart-in-d3js.html */
+
+.axis {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+
+
 .rest-api-block {
 		background-color: #fcfcfc;
 		border-bottom-left-radius: 5px;
