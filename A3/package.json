@@ -1,12 +1,12 @@
 {
-  "name": "TEAM_00",
+  "name": "TEAM_11",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "TEAM_00",
+  "author": "Maximilian Kindt and Tilo Werdin",
   "license": "ISC",
   "dependencies": {
     "csvtojson": "^2.0.8",
