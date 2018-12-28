@@ -1,6 +1,34 @@
 // Quelle: http://www.d3noob.org/2014/02/making-bar-chart-in-d3js.html
 
-function refresh() {
+// load the possible properties when the page has finished loading
+$("document").ready(function () {
+    $.ajax({
+        type: "GET",
+        url: "/properties",
+        async: true,
+        success: function (data) {
+            // add properties to the select
+            $(function () {
+                $.each(data, function (i, item) {
+                    $('#select1').append($("<option />").val(item).text(item));
+                    $('#select2').append($("<option />").val(item).text(item));
+                });
+            });
+
+            // save properties list for later
+            props = data;
+            
+            refresh(1);
+            refresh(2);
+        },
+        error: function (jqXHR, text, err) {
+            alert(err);
+        }
+    });
+})
+
+
+function refresh(barnum) {
     var margin = {top: 20, right: 20, bottom: 70, left: 40},
         width = 600 - margin.left - margin.right,
         height = 300 - margin.top - margin.bottom;
@@ -17,17 +45,25 @@ function refresh() {
         .scale(y)
         .orient("left");
 
-    var svg = d3.select("body").append("svg")
+    $("#bar" + barnum.toString()).empty();
+    
+    var svg = d3.select("#bar" + barnum.toString()).append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
         .attr("transform", 
               "translate(" + margin.left + "," + margin.top + ")");
 
+    var val = $("#select" + barnum.toString()).val();
+    if(val == undefined) {
+        val = "id";
+    }
+    
     d3.csv("world_data.csv", function(error, data) {
 
         x.domain(data.map(function(d) { return d.name; }));
-        y.domain([0, d3.max(data, function(d) { return d.id; })]);
+        alert(d3.max(data, function(d) { return parseFloat(d[val]); }));
+        y.domain([0, d3.max(data, function(d) { return parseFloat(d[val]); })]);
 
         svg.append("g")
             .attr("class", "x axis")
@@ -55,10 +91,17 @@ function refresh() {
             .style("fill", "steelblue")
             .attr("x", function(d) { return x(d.name); })
             .attr("width", x.rangeBand())
-            .attr("y", function(d) { return y(d.id); })
-            .attr("height", function(d) { return height - y(d.id); });
+            .attr("y", function(d) { return y(d[val]); })
+            .attr("height", function(d) { return height - y(d[val]); });
 
     });
 }
 
-refresh();
+$("#select1").on("change", function () {
+    refresh(1);
+});
+
+$("#select2").on("change", function () {
+    refresh(2);
+});
+
