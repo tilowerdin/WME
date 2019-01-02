@@ -27,6 +27,15 @@ $("document").ready(function () {
             alert(err);
         }
     });
+
+    // Quelle: https://leafletjs.com/examples/quick-start/
+//    var mymap = L.map('map').setView([51.505, -0.09], 13);
+//    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+//    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+//    maxZoom: 18,
+//    id: 'mapbox.streets',
+//    accessToken: 'your.mapbox.access.token'
+//}).addTo(mymap);
 })
 
 // Quelle: http://www.d3noob.org/2014/02/making-bar-chart-in-d3js.html
@@ -34,7 +43,7 @@ $("document").ready(function () {
 function refresh(barnum) {
     var margin = {top: 20, right: 20, bottom: 70, left: 40},
         width = 600 - margin.left - margin.right,
-        height = 300 - margin.top - margin.bottom;
+        height = 200 - margin.top - margin.bottom;
 
     var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
 
