@@ -1,5 +1,5 @@
 var props = [];
-
+var mymap;
 // load the possible properties when the page has finished loading
 $("document").ready(function () {
     $.ajax({
@@ -112,17 +112,24 @@ function refresh(barnum) {
 
 $("#select1").on("change", function () {
     refresh(1);
+    showMap();
 });
 
 $("#select2").on("change", function () {
     refresh(2);
+    showMap();
 });
 
 
 
 // Quelle: https://leafletjs.com/examples/quick-start/
+
+
 function showMap() {
-    var mymap = L.map('map').setView([20, -10], 1.5);
+    if (mymap != undefined)
+        mymap.remove();
+    
+    mymap = L.map('map').setView([20, -10], 1.5);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
@@ -131,7 +138,16 @@ function showMap() {
             'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         id: 'mapbox.streets'
     }).addTo(mymap);
+    
+    var att1 = $("#select1").val();
+    var att2 = $("#select2").val();
 
+    if (att1 == undefined)
+        att1 = props[2];
+    if (att2 == undefined)
+        att2 = props[2];
+    
+    
     $.ajax({
         type: "GET",
         url: "/items",
@@ -144,10 +160,17 @@ function showMap() {
                 return;
             }
             
+            
             $(function () {
                 $.each(data, function (i, item) {
+                    var popupString = "<b>" + item.name + "</b><br \><br \>";
+                    popupString += att1 + ": " + item[att1];
+                    
+                    if ( att1 != att2 )
+                        popupString += "<br\>" + att2 + ": " + item[att2];
+                    
                     L.marker([item.gps_lat, item.gps_long]).addTo(mymap)
-                        .bindPopup(item.name + ": " + item.gps_lat.toString() + ", " + item.gps_long.toString());
+                        .bindPopup(popupString);
                 })
             });          
         },
