@@ -49,14 +49,14 @@ fs.readFile(bar_dataCSV, 'utf8', function(err, contents) {
  ********************** handle HTTP METHODS ***********************
  **************************************************************************/
 app.get("/"+bar_dataCSV, function(req, res){
-    console.log(bar_data);
+    //console.log(bar_data);
     res.send(bar_data);
 });
 
 // GET call "/items"
 // returns all available items
 app.get("/items", function (req, res) {
-    //console.log(json);
+    console.log("/item");
     res.send(json);
 });
 

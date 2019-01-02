@@ -22,6 +22,8 @@ $("document").ready(function () {
             
             refresh(1);
             refresh(2);
+            
+            showMap();
         },
         error: function (jqXHR, text, err) {
             alert(err);
@@ -120,7 +122,7 @@ $("#select2").on("change", function () {
 
 // Quelle: https://leafletjs.com/examples/quick-start/
 function showMap() {
-    var mymap = L.map('map').setView([0, 0], 1.5);
+    var mymap = L.map('map').setView([20, -10], 1.5);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
         maxZoom: 18,
@@ -130,13 +132,27 @@ function showMap() {
         id: 'mapbox.streets'
     }).addTo(mymap);
 
-    // TODO add marker for every country
-    L.marker([51.5, -0.09]).addTo(mymap)
-        .bindPopup("London");
-
-    
-
-
-    var popup = L.popup();
-
+    $.ajax({
+        type: "GET",
+        url: "/items",
+        async: true,
+        success: function (data) {
+            // data contains the resulting json array or ["err", error message] in case of error
+            // catch error
+            if (data[0] == "err") {
+                state(-1,data[1]);
+                return;
+            }
+            
+            $(function () {
+                $.each(data, function (i, item) {
+                    L.marker([item.gps_lat, item.gps_long]).addTo(mymap)
+                        .bindPopup(item.name + ": " + item.gps_lat.toString() + ", " + item.gps_long.toString());
+                })
+            });          
+        },
+        error: function (jqXHR, text, err) {
+            alert(err);
+        }
+    });
 }
