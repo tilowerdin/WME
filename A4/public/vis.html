@@ -14,9 +14,19 @@
           rel='stylesheet' type='text/css'>
     <link href="assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/style.css" type="text/css" rel="stylesheet">
+<!-- Quelle: https://leafletjs.com/examples/quick-start/ -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
     
 <!-- Quelle: http://www.d3noob.org/2014/02/making-bar-chart-in-d3js.html -->
     <script src="http://d3js.org/d3.v3.min.js"></script>
+    
+    
+    
     <script src="assets/js/vis.js"></script>
 </head>
 
@@ -51,18 +61,21 @@
 
 <div class="container">
     <section>
+        <div id="left">
+            <div class="barcomp">
+                <select id="select1"></select>
+                <div id="bar1"></div>
+            </div>
 
-        <div class="barcomp">
-            <select id="select1"></select>
-            <div id="bar1"></div>
+            <div class="barcomp">
+                <select id="select2"></select>
+                <div id="bar2"></div>
+            </div>
         </div>
 
-        <div class="barcomp">
-            <select id="select2"></select>
-            <div id="bar2"></div>
+        <div id="right">
+            <div id="map"></div>
         </div>
-
-        
     </section>
 </div>
 

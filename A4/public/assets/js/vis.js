@@ -1,4 +1,4 @@
-// Quelle: http://www.d3noob.org/2014/02/making-bar-chart-in-d3js.html
+var props = [];
 
 // load the possible properties when the page has finished loading
 $("document").ready(function () {
@@ -10,8 +10,10 @@ $("document").ready(function () {
             // add properties to the select
             $(function () {
                 $.each(data, function (i, item) {
-                    $('#select1').append($("<option />").val(item).text(item));
-                    $('#select2').append($("<option />").val(item).text(item));
+                    if(i >= 2) {
+                        $('#select1').append($("<option />").val(item).text(item));
+                        $('#select2').append($("<option />").val(item).text(item));
+                    }
                 });
             });
 
@@ -27,6 +29,7 @@ $("document").ready(function () {
     });
 })
 
+// Quelle: http://www.d3noob.org/2014/02/making-bar-chart-in-d3js.html
 
 function refresh(barnum) {
     var margin = {top: 20, right: 20, bottom: 70, left: 40},
@@ -56,13 +59,12 @@ function refresh(barnum) {
 
     var val = $("#select" + barnum.toString()).val();
     if(val == undefined) {
-        val = "id";
+        val = props[2];
     }
     
     d3.csv("world_data.csv", function(error, data) {
 
         x.domain(data.map(function(d) { return d.name; }));
-        alert(d3.max(data, function(d) { return parseFloat(d[val]); }));
         y.domain([0, d3.max(data, function(d) { return parseFloat(d[val]); })]);
 
         svg.append("g")

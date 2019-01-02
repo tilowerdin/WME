@@ -147,6 +147,21 @@ nav a#pull {
     shape-rendering: crispEdges;
 }
 
+section {
+    overflow: hidden;
+}
+
+#left {
+    float:left;
+}
+
+#right {
+    float: left;
+}
+
+#map {
+    height: 180px;
+}
 
 
 .rest-api-block {
