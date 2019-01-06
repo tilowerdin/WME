@@ -176,12 +176,12 @@ function showMap() {
                 return;
             }
             
-            // Markiere alle verfuegbaren Laender auf der Karte und fuege Tooltip zu diesen hinzu
+            // Markiere alle verfuegbaren Laender auf der Karte und fuege Popup zu diesen hinzu
             $(function () {
                 $.each(data, function (i, item) {
-                    // Fuege Namen des Landes im zugehoerigen Tooltip ein
+                    // Fuege Namen des Landes im zugehoerigen Popup ein
                     var popupString = "<b>" + item.name + "</b><br \><br \>";
-                    // Fuege im oberen Balkendiagramm ausgewahltes Attribut mit Wert des Landes im Tooltip hinzu
+                    // Fuege im oberen Balkendiagramm ausgewahltes Attribut mit Wert des Landes im Popup hinzu
                     popupString += att1 + ": " + item[att1];
 
                     // Mache das gleiche fuer das untere Balkendiagramm, wenn unterschiedliche Attribute gewaehlt worden
