@@ -3,3 +3,4 @@ world_data.xml
 node_modules/
 
 .DS_Store
+\.idea/
