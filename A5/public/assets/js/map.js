@@ -6,8 +6,8 @@ const key = 'pk.eyJ1IjoicmljYXJkb2xhbmduZXIiLCJhIjoiY2pxano2enh2MG1qazN4bm5lajIz
 
 // Options for map
 const options = {
-    lat: 0,
-    lng: 0,
+    lat: 51.050407,
+    lng: 13.737262,
     zoom: 4,
     style: 'mapbox://styles/mapbox/traffic-night-v2',
     pitch: 50,
